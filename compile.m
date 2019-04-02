@@ -100,7 +100,7 @@ if ~exist('extra_ld_flags', 'var') || isempty(extra_ld_flags)
 end
 
 % Start building the mex command
-cmd = 'mex -outdir bin';
+cmd = 'mex -compatibleArrayDims -outdir bin';
 
 % Add verbosity if requested
 if verb

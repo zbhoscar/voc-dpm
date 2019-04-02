@@ -2,3 +2,6 @@
 learn
 svm_mex601
 .nfs*
+
+.idea
+.idea/
