@@ -40,13 +40,13 @@ else
   s = boxes(:,end);
   area = (x2-x1+1) .* (y2-y1+1);
 
-  [vals, I] = sort(s);
+  [~, I] = sort(s);
   pick = [];
   while ~isempty(I)
     last = length(I);
     i = I(last);
     pick = [pick; i];
-    suppress = [last];
+    suppress = last;
     for pos = 1:last-1
       j = I(pos);
       xx1 = max(x1(i), x1(j));

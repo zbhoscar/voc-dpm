@@ -1,11 +1,11 @@
-function b = zextend()
+function zextend()
 
 startup;
 
 loaded = load('INRIA/inriaperson_final');
 
 
-b = csc_detect('zbh/33823288584_1d21cf0a26_k.jpg', loaded.model);
+csc_detect('zbh/33823288584_1d21cf0a26_k.jpg', loaded.model);
 
 
 function b = csc_detect(impath, model)
@@ -44,7 +44,7 @@ pyra = featpyramid(double(im), csc_model);
 % fprintf('Computing detections with dynamic programming...');
 
 % th = tic;
-% [dDP, bDP] = gdetect(pyra, orig_model, orig_model.thresh);
+[dDP, bDP] = gdetect(pyra, orig_model, orig_model.thresh);
 % tDP = toc(th);
 % fprintf('done\n');
 % fprintf('  --> DP detection took %f seconds\n', tDP);
@@ -59,10 +59,10 @@ pyra = featpyramid(double(im), csc_model);
 % fprintf('  --> Cascade detection took %f seconds\n', tCSC);
 % fprintf('  --> Speedup = %fx\n', tDP/tCSC);
 
-% b = getboxes(orig_model, im, dDP, reduceboxes(orig_model, bDP));
-% subplot(1,3,2);
-% showboxes(im, b);
-% title('dynamic programming detections');
+b = getboxes(orig_model, im, dDP, reduceboxes(orig_model, bDP));
+subplot(1,3,2);
+showboxes(im, b);
+title('dynamic programming detections');
 
 b = getboxes(csc_model, im, dCSC, bCSC);
 subplot(1,3,3);
